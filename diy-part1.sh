@@ -17,3 +17,5 @@ mkdir package/base-files/files/config
 echo 0xDEADBEEF > package/base-files/files/config/google_fu_mode
 echo "src-git helloworld https://github.com/fw876/helloworld" >> feeds.conf.default
 ./scripts/feeds update -a && ./scripts/feeds install -a
+sed -i 's/'192.168.1.1'/'10.10.1.1'/g' openwrt/package/base-files/files/bin/config_generate
+sed -i 's/'192.168.$((addr_offset++)).1'/'10.10.$((addr_offset++)).1'/g' openwrt/package/base-files/files/bin/config_generate
